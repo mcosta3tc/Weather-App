@@ -1,9 +1,10 @@
-*{
-    font-family: "Rimouski", sans-serif;
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-body{
-    background-color: #293251;
+body {
+    background-color: #135e99;
+
 }
 
 .container {
@@ -19,28 +20,28 @@ body{
 
 .container-title {
     color: #FFFFFF;
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 4rem;
 }
 
-.container-app{
-    width: 300px;
+.container-app {
+    width: 800px;
     background-color: #FFF;
 
     display: block;
     margin: 0 auto;
 
     border-radius: 10px;
-    padding-bottom : 50px;
+    padding-bottom: 50px;
 }
 
-.app-title{
-    width: 300px;
+.app-title {
+    width: 800px;
     height: 50px;
     border-radius: 10px 10px 0 0;
 }
 
-.app-title p{
+.app-title p {
     text-align: center;
     padding: 15px;
     margin: 0 auto;
@@ -49,12 +50,12 @@ body{
 }
 
 
-.notification{
+.notification {
     background-color: #f8d7da;
     display: none;
 }
 
-.notification p{
+.notification p {
     color: #721c24;
     font-size: 1.2em;
     margin: 0;
@@ -62,28 +63,33 @@ body{
     padding: 10px 0;
 }
 
-.weather-container{
-    width: 300px;
-    height: 260px;
+.weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 800px;
+    height: 460px;
     background-color: #F4F9FF;
 }
 
-.weather-icon{
-    width: 300px;
+.weather-icon {
+    width: 800px;
     height: 128px;
 }
 
-.weather-icon img{
+.weather-icon img {
     display: block;
     margin: 0 auto;
 }
 
-.temperature-value{
-    width: 300px;
-    height:60px;
+.temperature-value {
+    width: 800px;
+    height: 60px;
 }
 
-.temperature-value p{
+.temperature-value p {
     padding: 0;
     margin: 0;
     color: #293251;
@@ -92,20 +98,20 @@ body{
     cursor: pointer;
 }
 
-.temperature-value p:hover{
+.temperature-value p:hover {
 
 }
 
-.temperature-value span{
+.temperature-value span {
     color: #293251;
     font-size: 0.5em;
 }
 
-.temperature-description{
+.temperature-description {
 
 }
 
-.temperature-description p{
+.temperature-description p {
     padding: 8px;
     margin: 0;
     color: #293251;
@@ -113,11 +119,11 @@ body{
     font-size: 1.2em;
 }
 
-.location{
+.location {
 
 }
 
-.location p{
+.location p {
     margin: 0;
     padding: 0;
     color: #293251;
