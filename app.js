@@ -2,11 +2,13 @@
 // api key : dccbb314d261fe4966f7bff877628594
 
 //Sélection des éléments
-const iconElement = document.querySelector(".weather-icon");
-const tempElement = document.querySelector(".temperature-value p");
-const descElement = document.querySelector(".temperature-description p");
-const locationElement = document.querySelector(".location p");
-const notificationElement = document.querySelector(".notification");
+const iconElement = document.querySelector('.weather-icon');
+const tempElement = document.querySelector('.temperature-value p');
+const descElement = document.querySelector('.temperature-description p');
+const locationElement = document.querySelector('.location p');
+const notificationElement = document.querySelector('.notification');
+const appContainerElement = document.querySelector('.container');
+const emojiElement = document.querySelector('.container-title-emoticon');
 
 //APP Data
 //Objet weather qui se remplira avec notre api
@@ -52,7 +54,6 @@ function getWeather(latitude, longitude, city) {
         .then(function (response) {
             //réponse convertie en JSON
             let data = response.json();
-            console.log(data);
             return data;
         })
         //MAJ de notre objet avec les information récupérer par la réponse (data)
@@ -66,15 +67,27 @@ function getWeather(latitude, longitude, city) {
         .then(() => {
             //Appel de la fonction pour maj l'affichage
             displayWeather();
+            test();
         });
 }
 
 //Afficher toutes les informations récupérer
 function displayWeather() {
-    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png" alt="cloud">`;
+    iconElement.innerHTML = `<img src='icons/${weather.iconId}.png' alt='cloud'>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+}
+
+function test() {
+    switch (weather.iconId) {
+        case '10d':
+            appContainerElement.style.background = 'linear-gradient(to top, #1D2671, #C33764)'
+            emojiElement.innerHTML = '🌧';
+            break;
+        default:
+            appContainerElement.style.backgroundColor = 'FFF';
+    }
 }
 
 //Convertir de C° à F°
@@ -83,15 +96,15 @@ function celsiusToFahrenheit(temperature) {
 }
 
 //Conversion au clique sur la température
-tempElement.addEventListener("click", () => {
+tempElement.addEventListener('click', () => {
     if (weather.temperature.unit === undefined) return;
-    if (weather.temperature.unit === "celsius") {
+    if (weather.temperature.unit === 'celsius') {
         let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
-        weather.temperature.unit = "fahrenheit";
+        weather.temperature.unit = 'fahrenheit';
     } else {
         tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-        weather.temperature.unit = "celsius";
+        weather.temperature.unit = 'celsius';
     }
 })
 
